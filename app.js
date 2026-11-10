@@ -894,6 +894,25 @@
       if (e.target.closest('button, .avatar, #sigpad, .dots')) return;
       if (current === 0) go(1);
     });
+
+    // 手机左右滑动翻屏
+    let tsX = 0, tsY = 0, tsTarget = null;
+    stage.addEventListener('touchstart', e => {
+      if (e.touches.length !== 1) return;
+      tsX = e.touches[0].clientX;
+      tsY = e.touches[0].clientY;
+      tsTarget = e.target;
+    }, { passive: true });
+
+    stage.addEventListener('touchend', e => {
+      if (!tsTarget || tsTarget.closest('#sigpad, button, .avatar, .dots')) return;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - tsX;
+      const dy = t.clientY - tsY;
+      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+        go(current + (dx < 0 ? 1 : -1));
+      }
+    }, { passive: true });
   }
 
   boot();

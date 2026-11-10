@@ -474,3 +474,18 @@ html, body {
 @media (max-width: 900px) {
   .hint { display: none; }
 }
+
+#rotateHint {
+  display: none;
+  position: fixed;
+  left: 0; right: 0; bottom: 16px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(239, 233, 217, 0.45);
+  pointer-events: none;
+  z-index: 100;
+}
+@media (max-aspect-ratio: 1/1) {
+  #rotateHint { display: block; }
+}
