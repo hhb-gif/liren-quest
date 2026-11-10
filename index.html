@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>立人十五班 · 立人闯关</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="viewport">
+  <div id="stage">
+
+    <!-- ============ 0 · 开机 ============ -->
+    <section class="screen" data-screen="0">
+      <canvas id="stars" width="1600" height="900"></canvas>
+      <div class="boot">
+        <canvas class="crest" id="crest"></canvas>
+        <div class="boot-en">LIREN CLASS 15</div>
+        <h1 class="boot-title" id="bootTitle"></h1>
+        <div class="boot-sub">2026 班级建设答辩</div>
+        <div class="boot-start">PRESS&nbsp;START</div>
+      </div>
+      <div class="boot-meta">
+        <span>SAVE 01</span>
+        <span id="metaMembers">MEMBERS 00</span>
+        <span id="metaEvents">EVENTS 00</span>
+        <span>DEMO · 匿名数据</span>
+        <span>BUILD 2026.11</span>
+      </div>
+    </section>
+
+    <!-- ============ 1 · 关卡 ============ -->
+    <section class="screen" data-screen="1">
+      <canvas id="world" width="1600" height="900"></canvas>
+
+      <div class="hud">
+        <div class="hud-left">
+          <div class="hud-row">
+            <span class="hud-label">PLAYER</span>
+            <span class="hud-name">立人十五班</span>
+            <span class="hud-lv">LV.15</span>
+          </div>
+          <div class="xp">
+            <div class="xp-bar"><div class="xp-fill" id="xpFill"></div></div>
+            <span class="xp-num" id="xpNum">出勤率 0%</span>
+          </div>
+        </div>
+        <div class="hud-right">
+          <div class="coin"><i></i><b id="coinEvents">0</b><em>EVENTS</em></div>
+          <div class="coin"><i></i><b id="coinGroups">0</b><em>GROUPS</em></div>
+        </div>
+      </div>
+
+      <div class="card" id="levelCard">
+        <div class="card-tag" id="cardTag">WORLD 1-1</div>
+        <div class="card-title" id="cardTitle"></div>
+        <div class="card-sub" id="cardSub"></div>
+        <div class="card-quote" id="cardQuote"></div>
+        <div class="card-stats" id="cardStats"></div>
+      </div>
+
+      <div class="world-tag">
+        <div>WORLD <b>1-1</b> / 06</div>
+        <div>LIREN QUEST</div>
+      </div>
+    </section>
+
+    <!-- ============ 2 · 成就墙 ============ -->
+    <section class="screen" data-screen="2">
+      <div class="achv">
+        <div class="achv-head">
+          <div>
+            <div id="achvTitle"></div>
+            <div class="achv-sub">ACHIEVEMENT WALL</div>
+          </div>
+          <div class="achv-count">已解锁 <b id="achvCount">0</b> / <span id="achvTotal">0</span></div>
+        </div>
+        <div class="achv-grid" id="achvGrid"></div>
+        <div class="roster-head">
+          <h3>全员存档</h3>
+          <span>HOVER 查看个人记录</span>
+        </div>
+        <div class="roster" id="roster"></div>
+      </div>
+    </section>
+
+    <!-- ============ 3 · 通关 ============ -->
+    <section class="screen" data-screen="3">
+      <div class="clear">
+        <div id="clearTitle" class="clear-title"></div>
+        <div class="clear-sub">立人十五班 · 存档已保存</div>
+
+        <div class="clear-stats" id="clearStats"></div>
+
+        <div class="sig-wrap">
+          <canvas id="sigpad" width="2000" height="440"></canvas>
+        </div>
+        <div class="sig-bar">
+          <button class="btn" id="btnReplay">重播笔迹</button>
+          <button class="btn ghost" id="btnClear">清空</button>
+          <button class="btn ghost" id="btnSave">导出 PNG</button>
+          <span class="sig-note">用鼠标或手指在这里签名，笔迹会留在墙上</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+    <div id="wipe"></div>
+
+    <nav class="dots" id="dots"></nav>
+    <div class="hint"><b>←</b> <b>→</b> 切换 &nbsp;·&nbsp; <b>空格</b> 自动演示</div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
